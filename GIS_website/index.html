@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Homepage</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- OpenLayers -->
+		<link rel="stylesheet" type="text/css" href="libraries/v6.12.0-dist/ol.css">
+		<script type="text/javascript" src="libraries/v6.12.0-dist/ol.js"></script>
+		<!-- Map -->
+		<link rel="stylesheet" type="text/css" href="assets/css/home_pagemapStyle.css">
+		<!-- LayerSwitcher -->
+		<script src = "http://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
+		<link rel = "stylesheet" href = "http://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css">
+	</head>
+
+	<body class="is-preload" >
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								 <header id="header">
+									<a href="index.html" class="logo"><strong>GIS Lab Project 2021/2022</strong> by Group '9'</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/polimi/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+
+										<li><a href="https://www.facebook.com/polimi/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+
+										<li><a href="https://www.instagram.com/polimi/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										<header>
+											<h2>GIS Lab Project 2021/2022</h2>
+											<p>Landslide Susceptibility Mapping and Exposure Assessment</p>
+										</header>
+										<p>This lab project has been led by a group of PoliMi students for the Geographic Information Systems course. The aim of this project is to represent the susceptibility map of an assigned area, given as input data some environmental factors. It was also required to compute an indicator of landslide hazard exposure, since a population map was also provided. Group areas have been identified by the tutors. Each area represents a watershed having an extension <code>> 45 km<sup>2</sup></code>, a resident population <code>> 1000</code> inhabitants and at least one recorded landslide event within its boundary. All the data provided have been preprocessed and prepared for the analysis by the group, using QGIS. Here you can see the region we focused our studies on: Lombardy. You can zoom in to find out all the groups and the area they've analysed.</p>
+										<ul class="actions">
+											<li><a href="https://www.polimi.it/" class="button big">POLIMI SITE</a></li>
+										</ul>
+									</div>
+
+									<!--Map Container-->
+									<div id="hmap"></div>
+
+								</section>
+
+					
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>The area</h2>
+									</header>
+										<article>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<a href="#" class="image"><img src="images/Aprica.PNG" alt=""height="200" width="400" /></a>
+											</div>
+
+											<div class="col-6 col-12-small">
+												<p style="text-align:justify;">The group area is situated near Aprica, in South-East of the province of Sondrio. It covers an area of <code>60,32 km<sup>2</sup></code>.with a population of <code>1538</code> inhabitants.
+												</p><p>You can have a better visualization of the Area on Google Earth.<br>
+													<a href="https://earth.google.com/web/search/Aprica,+Province+of+Sondrio/@0,10.14559225,0a,22251752.77375655d,35y,0h,0t,0r/data=CoYBGlwSVgolMHg0NzgzYmMzY2E1NTkyNDZmOjB4NWRiMjk2NGNkYTdjODIyNBkO-FfqtBNHQCH4XjJEBE4kQCobQXByaWNhLCBQcm92aW5jZSBvZiBTb25kcmlvGAIgASImCiQJp0UdJ1cVR0AR5jCaQcAQR0AZNkvDyJppJEAhvJlfhqIzJEAoAQ" class="icon solid fa-map-marked-alt"> here</a></p>
+											</div>
+
+										</div>
+										</article>
+
+								</section>
+
+								<section>
+									<header class="major">
+										<h2>Group Members</h2>
+									</header>
+
+									<div class="features">
+										<article>
+											<div class="content">
+												<ul class="icons">
+													<span class="image"><img src="images/ahmed.jpg" alt="" width="150px" height="150px"></span>
+											    </ul>
+												<h3>Ahmed Mukhtar</h3>
+												<p style="text-align:justify">Awarded a bachelor degree of science in surveying engineering at the University of Khartoum. Currently doing his master's degree in Geoinformatics Engineering at Politecnico di Milano.</p>
+											</div>
+										</article>
+
+										<article>
+											<div class="content">
+												<ul class="icons">
+													<span class="image"><img src="images/hakan.jpg" alt="" width="150px" height="150px"></span>
+											    </ul>
+												<h3>Hakan Kinikli</h3>
+												<p style="text-align:justify">Studied Geomatics Engineering at Izmir Katip Celebi University. Currently doing his master's degree at Istanbul Technical University and master's thesis at the Politecnico di Milano.</p>
+											</div>
+										</article>
+
+										<article>
+											<div class="content">
+												<ul class="icons">
+													<span class="image"><img src="images/martina.jpg" alt="" width="150px" height="150px"></span>
+											    </ul>
+												<h3>Martina Giovanna Esposito</h3>
+												<p style="text-align:justify">Student of PoliMi since 2018, graduated in "Ingegneria Civile per l'Ambiente e il Territorio" in 2021. Now attending the PoliMi master's degree course "Geoinformatics Engineering".</p>
+											</div>
+										</article>
+
+										<article>
+											<div class="content">
+											</div>
+										</article>
+
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Landslides</a></li>
+										<li>
+											<span class="opener">Work Steps</span>
+											<ul>
+												<li><a href="STEP 1 DATA PREPROCESSING.html">Step 1: Data Preprocessing</a></li>
+												<li><a href="STEP 2 MAP GENERATION.html">Step 2: Susceptibility Map Generation</a></li>
+												<li><a href="STEP 3 EXPOSURE ASSESSMENT.html">Step 3: Exposure Assessment</a></li>
+											</ul>
+										</li>
+										<li><a href="./elements.html">Discussion</a></li>
+									</ul>
+								</nav>
+								
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>You can find the contact information of the group members below.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:ahmed.mukhtar@mail.polimi.it">ahmed.mukhtar@mail.polimi.it</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:hakankinikli@outlook.com">hakankinikli@outlook.com</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:martinaess29@gmail.com">martinaess29@gmail.com</a></li>
+										<li class="icon solid fa-home">Politecnico di Milano<br />
+										Piazza Leonardo da Vinci, 32 <br> 20133, Milano</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="assets/js/map.js"></script>
+			
+	</body>
+</html>

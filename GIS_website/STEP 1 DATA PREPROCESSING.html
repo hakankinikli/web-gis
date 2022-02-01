@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GIS lab project - Data Preprocessing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- OpenLayers -->
+		<link rel="stylesheet" type="text/css" href="libraries/v6.12.0-dist/ol.css">
+		<script type="text/javascript" src="libraries/v6.12.0-dist/ol.js"></script>
+		<!-- Map -->
+		<link rel="stylesheet" type="text/css" href="assets/css/mapStyle.css">
+		<!-- LayerSwitcher -->
+		<script src = "http://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
+		<link rel = "stylesheet" href = "http://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css">
+	</head>
+
+	<body class="is-preload" >
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								 <header id="header">
+									<a href="index.html" class="logo"><strong>GIS Lab Project 2021/2022</strong> by Group '9'</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/polimi/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+
+										<li><a href="https://www.facebook.com/polimi/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+
+										<li><a href="https://www.instagram.com/polimi/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Data Preprocessing</h1>
+									</header>
+
+									<!--Content-->
+										
+										<h2 id="content">Environmental Factors</h2>
+										<p style="text-align: justify;">
+											<br>
+											<br>
+											For the work, a set of raster and vector layers were given. To obtain the environmental factors starting from this dataset:
+												<ul>
+													<li>all the layers provided were clipped to the area of interest;</li>
+													<li>the raster layers supplied were <i>digital terrain model (DTM)</i>, <i>normalized difference vegetation index (NDVI)</i> and <i>land use and land cover (DUSAF)</i>;</li>
+													<li>the vector layers <i>roads</i>, <i>faults</i> and <i>rivers</i> have been rasterized;</li>
+													<li>the <i>NDVI</i> layer needed to be resampled according to the <i>digital terrain model</i> in order to reduce the resolution from <code>(10, -10)</code> to <code>(5, -5)</code>;</li>
+													<li>the remaining factors were extracted from the <i>digital terrain model</i>, such as the <i>slope</i>, the <i>aspect</i>, the <i>plan</i> and <i>profile curvature</i>. In particular, for this last two factors, it is of interest whether the values are <code>< 0, = 0 or > 0</code>.</li>
+												</ul>
+										</p>
+										<br>
+
+									<!--Map Container-->
+									<div id="map"></div>
+										<br>
+										<p style="text-align:justify;">After obtaining all the necessary data, the aim was to feed a set of points extracted randomly with the values of each environmental factor, plus a value indicating weather every specific point was situated in an area with hazard of lanslide or not. These points will then be used to attempt a <u>supervised classification</u>: once divided in training and testing points, the classification algorithm uses the training set as an input to learn to recognize similar values in the area. Then, the testing points are used for validation, that defines how accurately the machine learning model recognized each class.</p>
+											<div class="row">
+												<div class="col-6 col-12-small">
+													<h3><i>No Landslide</i> and <i>Landslide Zones</i></h3>
+													<div class="col-6 col-12-small">
+															<ol>
+																<li>The No Landslide Zones <i>NLZ</i> were obtained by means of a hypothesis based on the slope angle, assuming that there is no risk where the slope is <code>< 20° or > 70°</code>, since the main focus of the project is on shallow landslides, where rock falls are not included.</li>
+																<br>
+																<li>after examining the layers, there were many small areas that needed to be removed; therefore, a ratio of 50 has been used to clear out these small patches (known as salt and pepper effect);</li>
+																<br>
+																<li>then all the negative values have been removed and the layer has been vectorized. Also, the geometry of the resulting layer has been fixed to avoid subsequent errors;</li>
+																<br>
+																<li>a <i>landslide inventory</i> was provided as a vector layer, representing zones where landslides have occurred in previous years, hence where there is a high probability that will occur again;</li>
+																<br>
+																<li>since our hypothesis is calculated and simplified by slope only, some <i>NLZ</i> were overlapping with the <i>landslide inventory</i> polygons, so they have been discarded and excluded from consideration.</li>
+																<br>
+																<li>There were also some piles of landslides overlapping during time, which have been approximately separated using the union operation;</li>
+																<br>
+																<li>the resulting output consists of a vector layer in which the different zones are classified by creating a <b>Hazard</b> field in its <i>attribute table</i>, assigning <code>0</code> to the NoLandslide Zones and <code>1</code> to the Landslide Inventory.</li>
+																<br>
+																<span class="image fit"><img src="images/Hazard.png" alt=""/></span>
+															</ol>
+													</div>
+												</div>	
+												<div class="col-6 col-12-small">
+													<h3>Supervised classification</h3>
+													<p>For the machine learning of the model, a training and testing ratio of <code>70/30</code> was set accordingly: 70% of the polygons were used for training the model and 30% of them for testing it. 
+													</p>
+													<div class="col-6 col-12-small">
+															<ol>
+																<li>a text attribute was created and the selected polygons were assigned the values <i>training</i> and <i>testing</i> respectively;</li>
+																<br>
+																<li>the model has been fed with 1000 points, 700 of which were used for training the model and the other 300 were used for testing, considering a point ratio of 1:1 according to Hazard value;</li>
+																<br>
+																<span class="image fit"><img src="images/table.png" alt=""/></span>
+																<li>this 4 training and testing layers have been merged separately into two point layers, one containing all the training points and the other the testing ones;</li>
+																<br>
+																<li>these layers have been sampled together with the environmental factors and the Hazard attribute by means of the <i>Point Sampling Tool Plugin</i> previously installed in QGIS;</li>
+																<br>
+																<li>in the end, the result consists of two layers: <i>trainingPointsSampled</i> and <i>testingPointsSampled</i>, whose attribute tables contained the Hazard value and the values of the environmental factors for each point.</li>
+															</ol>
+													</div>
+												</div>
+											</div>
+										</p>
+
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Land Slides</a></li>
+										<li>
+											<span class="opener">Work Steps</span>
+											<ul>
+												<li><a href="STEP 1 DATA PREPROCESSING.html">Step 1: Data Preprocessing</a></li>
+												<li><a href="STEP 2 MAP GENERATION.html">Step 2: Susceptibility Map Generation</a></li>
+												<li><a href="STEP 3 EXPOSURE ASSESSMENT.html">Step 3: Exposure Assessment</a></li>
+											</ul>
+										</li>
+										<li><a href="./elements.html">Discussion</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>You can find the contact information of the group members below.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:ahmed.mukhtar@mail.polimi.it">ahmed.mukhtar@mail.polimi.it</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:hakankinikli@outlook.com">hakankinikli@outlook.com</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:martinaess29@gmail.com">martinaess29@gmail.com</a></li>
+										<li class="icon solid fa-home">Politecnico di Milano<br />
+										Piazza Leonardo da Vinci, 32 <br> 20133, Milano</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="./assets/js/mapStep1.js"></script>
+
+	</body>
+</html>

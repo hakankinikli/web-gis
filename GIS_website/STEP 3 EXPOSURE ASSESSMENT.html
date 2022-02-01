@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GIS lab project - Exposure Assesment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- OpenLayers -->
+		<link rel="stylesheet" type="text/css" href="libraries/v6.12.0-dist/ol.css">
+		<script type="text/javascript" src="libraries/v6.12.0-dist/ol.js"></script>
+		<!-- Map -->
+		<link rel="stylesheet" type="text/css" href="assets/css/mapStyle.css">
+		<!-- LayerSwitcher -->
+		<script src = "http://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
+		<link rel = "stylesheet" href = "http://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css">
+	</head>
+
+	<body class="is-preload" >
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								 <header id="header">
+									<a href="index.html" class="logo"><strong>GIS Lab Project 2021/2022</strong> by Group '9'</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/polimi/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+
+										<li><a href="https://www.facebook.com/polimi/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+
+										<li><a href="https://www.instagram.com/polimi/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+
+									<header class="main">
+										<h1>Exposure Assessment</h1>
+									</header>
+
+									<!--Content-->
+									<p style="text-align:justify"><i>
+										Exposure assessment is the process of estimating or measuring the magnitude, frequency and duration of exposure to an agent, along with the number and characteristics of the population exposed. Exposure analysis is the science that describes how an individual or population comes in contact with a contaminant, including quantification of the amount of contact across space and time.Risk is a function of exposure and hazard.
+									</i></p>
+									<p style="text-align:justify">Basically, an exposure assessment implies the counting or estimating of people, property, systems, or other elements present in hazard zones. In this case, for example, even for an extremely high (high hazard) landslide susceptibility, the risk of an adverse outcome is unlikely if exposures are near zero. Conversely, a moderate landslide susceptibility may presents substantial risk if an individual or a population is highly exposed.</p>
+
+									<!--Map Container-->
+									<div id = "map"></div>
+
+									<!-- Adding Legends -->
+									<section>
+										<div class="posts">
+											<article>
+												<h>Population Legend</h>
+												<br></br>
+												<!-- Container For the Legend1 Population -->
+									         <div id="get-legend1"></div>
+									        </article>
+
+											<article>
+												<h>Building Legend</h>
+												<br></br>
+												<!-- Container For the Legend 2 Building -->
+									          <div id="get-legend2"></div>
+									        </article>
+										</div>
+									</section>
+
+								</section>
+
+								<section>
+									<br>
+										<h2 id="content">Population assessment</h2>
+													<p>The first exposure assessment that has been conducted was the mandatory one; a spatial raster dataset containing the estimated total number of people per gridcell was given:
+														<ol>
+															<li>The raster projection was the WGS84, so it has been reprojected and clipped accordingly;</li>
+															<li>The susceptibility map has been reclassified in four classes:</li>
+															<br>
+															<div class="row">
+																<div class="col-2 col-12-small">
+																<ul class="alt">
+																	<li>Low</li>
+																	<li>Moderate</li>
+																	<li>High</li>
+																	<li>Very high</li>
+																</ul>
+															</div>
+															</div>
+															<li>Then, since the resolution of the zones layer should be equal or lower than the input layer, it was also resampled using extension and resolution of the clipped population raster dataset: <code>~ 81,67 m</code>;</li>
+															<li>A particular <i>zonal statistic</i> was used in order to derive the population counts in each susceptibility class;</li>
+														</ol>
+													<a href="#" class="image left"><img src="images/population _class_count.PNG" alt="" width="1100" height="120" /></a>
+													<p>Here the resulting plot shows the percentage of people per each susceptibility class. As you can observe from a critical point of view, the areas with high and very high risk of landslide host almost no people, so it's safe to say that the exposure is not particularly alarming in this case. On the other end, almost half of the inhabitants live nearby moderately risky areas, that have to be monitored for that specific reason.</p>
+													<article>
+														<a href="#" class="image"><img src="images/populationplot1.PNG" alt=""height="500" width="500" /></a>
+														<a href="#" class="image"><img src="images/populationplot2.PNG" alt="" width="500" height="500" /></a>
+													</article>
+													
+								</section>
+
+								<section>
+											<h2 id="content">Buildings assessment</h2>
+											<p style="text-align:justify;">To go a little deeper, a second exposure assessment regarding building has been conducted voluntarily. The dataset containing information about the number of buildings present in the area of interest has been found <a href="https://ghsl.jrc.ec.europa.eu/" class="button small">here</a>
+											</p>
+															<div class="box">
+																<p style="text-align: justify;">The Global Human Settlement Layer <b>GHSL</b> project produces global spatial information about the human presence on the planet over time; this in the form of built-up maps, population density maps and settlement maps. This information is generated with evidence-based analytics and knowledge using new spatial data mining technologies. The GHSL processing framework uses heterogeneous data including global archives of fine-scale satellite imagery, census data, and volunteered geographic information. The data is processed fully automatically and generates analytics and knowledge reporting objectively and systematically about the presence of population and built-up infrastructures.</p>
+															</div>
+
+																<a href="#" class="image left"><img src="images/buildings_class_count.PNG" alt="" width="700" height="120" /></a>
+																<p style="text-align:justify">The procedure was exactly the same.As we can see both from the layers above and the plot.</p>
+																<p style="text-align:justify">in the case of buildings the risk of landslide is slightly more spread, maybe because there are some more buildings like shops, schools, hospital, etc., which use is not purely housing, that can be found in zones with higher risk far from the accomodations.</p>
+																<br>
+																<article>
+																<a href="#" class="image"><img src="images/buildings plot1.PNG" alt=""height="500" width="500" /></a>
+																<a href="#" class="image"><img src="images/buildings plot2.PNG" alt="" width="500" height="500" /></a>
+															    </article>
+									</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Land Slides</a></li>
+										<li>
+											<span class="opener">Work Steps</span>
+											<ul>
+												<li><a href="STEP 1 DATA PREPROCESSING.html">Step 1: Data Preprocessing</a></li>
+												<li><a href="STEP 2 MAP GENERATION.html">Step 2: Susceptibility Map Generation</a></li>
+												<li><a href="STEP 3 EXPOSURE ASSESSMENT.html">Step 3: Exposure Assessment</a></li>
+											</ul>
+										</li>
+										<li><a href="./elements.html">Discussion</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>You can find the contact information of the group members below.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:ahmed.mukhtar@mail.polimi.it">ahmed.mukhtar@mail.polimi.it</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:hakankinikli@outlook.com">hakankinikli@outlook.com</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:martinaess29@gmail.com">martinaess29@gmail.com</a></li>
+										<li class="icon solid fa-home">Politecnico di Milano<br />
+										Piazza Leonardo da Vinci, 32 <br> 20133, Milano</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="./assets/js/mapStep3.js"></script>
+
+	</body>
+</html>

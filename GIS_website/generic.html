@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GIS lab project - Group 9- The project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- OpenLayers -->
+		<link rel="stylesheet" type="text/css" href="libraries/v6.12.0-dist/ol.css">
+		<script type="text/javascript" src="libraries/v6.12.0-dist/ol.js"></script>
+		<!-- Map -->
+		<link rel="stylesheet" type="text/css" href="assets/css/mapStyle.css">
+		<!-- LayerSwitcher -->
+		<script src = "http://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
+		<link rel = "stylesheet" href = "http://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css">
+	</head>
+
+	<body class="is-preload" >
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								 <header id="header">
+									<a href="index.html" class="logo"><strong>GIS Lab Project 2021/2022</strong> by Group '9'</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/polimi/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+
+										<li><a href="https://www.facebook.com/polimi/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+
+										<li><a href="https://www.instagram.com/polimi/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<h1>Landslide</h1>
+									<center><img src="https://www.bgs.ac.uk/wp-content/uploads/2019/12/P707132_holbeck_hall_banner.jpg" alt="landslide image" style=""></center>
+									<br>
+									<p style="text-align: justify;">Landslides are one of the most widespread and devastating geohazards in the world. As catastrophic events, landslides can cause human injury, loss of life and economic devastation, and destroy construction works and cultural and natural heritage. Very often they are recursive and can cause serious problems: that is why it is necessary to make some models for building susceptibility maps. In Europe, the most frequent events are located in southern Europe; Italy is the most affected country by hydrologeological hazard in EU (21 events in the past 10 years), because it's a very rich country in water.</p>
+									<h3>Type of landslides</h3>
+									
+									<p>Landslides can be classified according to:
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<u><b>Movement type</b></u>
+												<ol>
+													<li>falls</li>
+													<li>topples</li>
+													<li>slides (both rotational and translational)</li>
+													<li>lateral spreads</li>
+													<li>flows</li>
+													<li>complex (involve two or more types of movement)</li>
+												</ol>
+											</div>
+											<div class="col-6 col-12-small">
+												<u><b>Type of material</b></u>
+												<ol>
+													<li>rocks</li>
+													<li>debris</li>
+													<li>earth</li>
+												</ol>
+											</div>
+										</div>
+									<span class="image left"><img src="https://d3i71xaburhd42.cloudfront.net/3c0fb09ec1256221468ff5dd1144c9c8945554b5/21-Figure3-1.png" alt="" width="200px" height="200px" /></span>
+
+									<br>
+									<p style="text-align:justify;">
+									There are also other criteria like speed of movement, water content, clay properties (because clay lowers the friction),triggering processes, state of activity.
+									In Lombardy, the most common types are: rock falls, slides, debris flows, earth flows and complex landslides. For this particular project, the focus is only on <b>shallow landslides</b>, in which the sliding surface is located within the soil mantle or weathered bedrock (typically to a depth from few decimeters to some meters). They are very harmful because of their quickness and the fact that it's almost impossible to forecast them, plus they are triggered by rainfalls.</p>
+									<br>
+
+									<hr class="major" />
+									<br>
+
+									<h2>Vocabulary of the project</h2>
+									<div class="features">
+
+										<article>
+											<div class="content">
+												<h3>Susceptibility</h3>
+												<p><i>Linked to slope instabilities, it indicates the tendency of an area to
+													breakdown. Susceptibility is the probability of an event happening in a specific
+													zone, depending on the correlation of the instability determining
+													environmental factors with the distribution of the past movements. Either the
+													moment of occurrence or potential victims and economic losses are not taken
+													into account.</i></p>
+											</div>
+										</article>
+
+										<article>
+											<div class="content">
+												<h3>Exposure</h3>
+												<p><i>
+												The situation of people, infrastructure, housing,
+												production capacities and other tangible human assets located in hazard
+												prone areas. Measures of exposure can include the number of people or types of assets in an area. These can be combined with the specific vulnerability and capacity of the exposed elements to any particular hazard to estimate the quantitative risks associated with that
+												hazard in the area of interest. Exposure can be assessed by overlaying
+												susceptibility maps with the spatial density layers of those elements within
+												the considered areas.</i>
+												</p>
+											</div>
+										</article>
+									</div>
+								</section>
+
+								<section>
+									<div class="row">
+										<div class="col-6 col-12-small">
+										<h2>Softwares</h2>
+											<p>The main softwares that were used to develop the project are:</p>
+												<div class="col-6 col-12-small">
+													<ul>
+														<p><span class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/1200px-QGIS_logo_new.svg.png" alt="" width="40px" height="40px"></span> QGIS formerly known as Quantum GIS, which is a free and open-source cross-platform desktop geographic information system (GIS) application that supports viewing, editing and analysis of geospatial data</p>
+														
+														<p><span class="image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png" alt="" width="40px" height="40px"></span> R is a free software environment for statistical computing and graphics</p>
+													</ul>
+												</div>
+										</div>	
+										<div class="col-6 col-12-small">
+										<h2>Technologies</h2>
+											<p>The used technologies in this project were core plugins already installed in the Qgis software and a set of tools like <i>GRASS 7 Geographic Resources Analysis Support System</i> and <i>GDAL</i>; in addition, other python based plugins needed to be installed:</p>
+												<div class="col-6 col-12-small">
+													<ul>
+														<li><b>Point sampling tool</b>, that samples polygon attributes and raster values from multiple layers at specified sampling points. For that a point layer with locations of sampling points and at least one polygon or raster layer to extract values from are needed. The plugin creates a new point layer with locations given by the sampling points and attributes taken from all the underlying polygons or/and raster cells;</li>
+														<li><b>AcATaMa</b>, which is a Qgis plugin for Accuracy Assessment of Thematic Maps. It was designed mainly to assess the accuracy of the thematic map, to estimate areas of the map classes, sampling design/classification and others;</li>
+														<li><b>Data Plotly</b> for drawing plots in QGIS;</li>
+													</ul>
+												</div>
+										</div>
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Land Slides</a></li>
+										<li>
+											<span class="opener">Work Steps</span>
+											<ul>
+												<li><a href="STEP 1 DATA PREPROCESSING.html">Step 1: Data Preprocessing</a></li>
+												<li><a href="STEP 2 MAP GENERATION.html">Step 2: Susceptibility Map Generation</a></li>
+												<li><a href="STEP 3 EXPOSURE ASSESSMENT.html">Step 3: Exposure Assessment</a></li>
+											</ul>
+										</li>
+										<li><a href="./elements.html">Discussion</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>You can find the contact information of the group members below.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:ahmed.mukhtar@mail.polimi.it">ahmed.mukhtar@mail.polimi.it</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:hakankinikli@outlook.com">hakankinikli@outlook.com</a></li>
+										<li class="icon solid fa-envelope"><a href="mailto:martinaess29@gmail.com">martinaess29@gmail.com</a></li>
+										<li class="icon solid fa-home">Politecnico di Milano<br />
+										Piazza Leonardo da Vinci, 32 <br> 20133, Milano</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
